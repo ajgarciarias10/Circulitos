@@ -8,21 +8,40 @@
     <fragment
         android:id="@+id/FirstFragment"
         android:name="es.tonicotitular.circulitos.FirstFragment"
-        android:label="@string/first_fragment_label"
+        android:label="Levels"
         tools:layout="@layout/fragment_first">
-
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_FirstFragment_to_areyouready"
+            app:destination="@id/areyouready" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="es.tonicotitular.circulitos.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        android:id="@+id/areyouready"
+        android:name="es.tonicotitular.circulitos.Areyouready"
+        android:label="fragment_areyouready"
+        tools:layout="@layout/fragment_areyouready" >
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_areyouready_to_secondFragment"
+            app:destination="@id/secondFragment" />
+        <action
+            android:id="@+id/action_areyouready_to_medium_level_fragment"
+            app:destination="@id/medium_level_fragment" />
+        <action
+            android:id="@+id/action_areyouready_to_hardLevel"
+            app:destination="@id/hardLevel" />
     </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="es.tonicotitular.circulitos.SecondFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second" />
+    <fragment
+        android:id="@+id/hardLevel"
+        android:name="es.tonicotitular.circulitos.HardLevel"
+        android:label="fragment_hard_level"
+        tools:layout="@layout/fragment_hard_level" />
+    <fragment
+        android:id="@+id/medium_level_fragment"
+        android:name="es.tonicotitular.circulitos.medium_level_fragment"
+        android:label="fragment_medium_level_fragment"
+        tools:layout="@layout/fragment_medium_level_fragment" />
 </navigation>
