@@ -7,9 +7,12 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class GraphicView extends View {
-    public Paint p,p2,p3,p4;
+import java.util.ArrayList;
+import java.util.List;
 
+public class GraphicView extends View {
+    public Paint p;
+    private List<Ball> balls = new ArrayList<>();
     private static final int RADIO = 30;
     private int centroX;
     private int centroY;
@@ -17,68 +20,36 @@ public class GraphicView extends View {
     private int velocidadY = 55;
 
 
-
-    public GraphicView(Context context, AttributeSet attr) {
-        super(context, attr);
-        p = new Paint();
-        p.setColor(Color.RED);
-        p2= new Paint();
-        p2.setColor(Color.RED);
-        p3= new Paint();
-        p3.setColor(Color.YELLOW);
-        p4= new Paint();
-        p4.setColor(Color.YELLOW);
+    public GraphicView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
     }
-
-
+    public GraphicView(Context context) {
+        super(context);
+        init();
+    }
+    private void init(){
+        //Add a new ball to the view
+        balls.add(new Ball(50,50,100,Color.RED,100));
+        balls.add(new Ball(50,50,100,Color.RED,50));
+        balls.add(new Ball(50,50,100,Color.YELLOW,20));
+        balls.add(new Ball(50,50,100,Color.YELLOW,34));
+    }
     @Override
-    public void onSizeChanged(int w, int h, int oldW, int oldH) {
-        centroX = w / 2;
-        centroY = h / 2;
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        //Draw the balls
+        for(Ball ball : balls){
+            //Move first
+            ball.move(canvas);
+            //Draw them
+            canvas.drawOval(ball.oval,ball.paint);
+        }
+        invalidate(); // See note
     }
 
-    public void onDraw(Canvas c) {
 
-        // Anchura
-        int w = getWidth();
-        // Altura
-        int h = getHeight();
-
-
-        centroX += velocidadX;
-        centroY += velocidadY;
-
-        // Límites de pantalla
-        int limiteDerecha = w - RADIO;
-        int limiteInferior = h - RADIO;
-
-        // Comprobar si invertir si llegamos al límite
-        if (centroX >= limiteDerecha) {
-            centroX = limiteDerecha;
-            velocidadX *= -1;
-        }
-        if (centroX <= RADIO) {
-            centroX = RADIO;
-            velocidadX *= -1;
-        }
-        if (centroY >= limiteInferior) {
-            centroY = limiteInferior;
-            velocidadY *= -1;
-        }
-        if (centroY <= RADIO) {
-            centroY = RADIO;
-            velocidadY *= -1;
-        }
-            // Dibujar el círculo
-            c.drawCircle(centroX, centroY, RADIO, p);
-            postInvalidateDelayed(100);
-        c.drawCircle(centroX, centroY, RADIO, p2);
-        postInvalidateDelayed(100);
-        c.drawCircle(centroX, centroY, RADIO, p3);
-        postInvalidateDelayed(100);
-        c.drawCircle(centroX, centroY, RADIO, p4);
-        postInvalidateDelayed(100);
 
 
     }
-}
+
