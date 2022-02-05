@@ -4,6 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.9" />
+        <entry key="..\:/Documentos/2DAM/Circulitos/app/src/main/res/layout/activity_main.xml" value="0.1762917933130699" />
+        <entry key="..\:/Documentos/2DAM/Circulitos/app/src/main/res/layout/fragment_areyouready.xml" value="0.20260416666666667" />
+        <entry key="..\:/Documentos/2DAM/Circulitos/app/src/main/res/layout/fragment_cuantas_bolas.xml" value="0.25" />
+        <entry key="..\:/Documentos/2DAM/Circulitos/app/src/main/res/layout/fragment_first.xml" value="0.20260416666666667" />
+        <entry key="..\:/Documentos/2DAM/Circulitos/app/src/main/res/layout/fragment_hard_level.xml" value="0.20260416666666667" />
+        <entry key="..\:/Documentos/2DAM/Circulitos/app/src/main/res/layout/fragment_medium_level_fragment.xml" value="0.20260416666666667" />
+        <entry key="..\:/Documentos/2DAM/Circulitos/app/src/main/res/layout/fragment_second.xml" value="0.25" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.30117753623188404" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.2441123188405797" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.2441123188405797" />

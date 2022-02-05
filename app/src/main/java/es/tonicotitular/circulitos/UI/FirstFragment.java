@@ -1,16 +1,16 @@
-package es.tonicotitular.circulitos;
+package es.tonicotitular.circulitos.UI;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import es.tonicotitular.circulitos.MovimientoBolas.GraphicViewParteFacil;
+import es.tonicotitular.circulitos.R;
 import es.tonicotitular.circulitos.databinding.FragmentFirstBinding;
 
 public class FirstFragment extends Fragment {

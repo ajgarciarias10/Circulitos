@@ -1,4 +1,4 @@
-package es.tonicotitular.circulitos;
+package es.tonicotitular.circulitos.MovimientoBolas;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;

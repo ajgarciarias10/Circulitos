@@ -1,4 +1,4 @@
-package es.tonicotitular.circulitos;
+package es.tonicotitular.circulitos.UI;
 
 import android.os.Bundle;
 
@@ -13,6 +13,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import es.tonicotitular.circulitos.R;
 import es.tonicotitular.circulitos.databinding.ActivityMainBinding;
 
 import android.view.Menu;

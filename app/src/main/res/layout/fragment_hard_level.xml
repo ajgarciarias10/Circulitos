@@ -5,9 +5,9 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HardLevel" >
+    tools:context=".UI.UICONBOLAS.HardLevel" >
 
-    <es.tonicotitular.circulitos.GraphicViewParteDificil
+    <es.tonicotitular.circulitos.MovimientoBolas.GraphicViewParteDificil
         android:id="@+id/graphicViewParteDificil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

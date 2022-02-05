@@ -1,34 +1,22 @@
-package es.tonicotitular.circulitos;
-
-import android.animation.ObjectAnimator;
-import android.graphics.drawable.TransitionDrawable;
+package es.tonicotitular.circulitos.UI;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
-import android.transition.Transition;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
-import android.widget.Button;
-
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.fragment.NavHostFragment;
 
-import java.sql.Time;
-import java.util.Timer;
-
+import es.tonicotitular.circulitos.R;
 import es.tonicotitular.circulitos.databinding.FragmentAreyoureadyBinding;
-import es.tonicotitular.circulitos.databinding.FragmentFirstBinding;
-
 public class Areyouready extends Fragment {
-
+    //Utilizamos el binding para llamar a cada objeto que utilizamos en la interfaz
     private FragmentAreyoureadyBinding binding;
+
+
     TranslateAnimation an ;
 
 
@@ -52,13 +40,29 @@ public class Areyouready extends Fragment {
         Bundle bundle = new Bundle();
         bundle = getArguments();
         nivel = bundle.getInt("nivel");
+
+        final MediaPlayer mp = MediaPlayer.create(getContext(), R.raw.song);
+
+
+
         an  = new TranslateAnimation( 0.0f,0.0f,0.0F,3600.0f);
         an.setDuration(3000);
         binding.tvEstasListo.startAnimation(an);
         an.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
+                switch (nivel){
+                    case 1:
+                        mp.start();
+                        break;
+                    case 2:
+                        mp.start();
+                        break;
+                    case 3 :
+                        mp.start();
+                        break;
 
+                }
 
             }
 
@@ -66,16 +70,34 @@ public class Areyouready extends Fragment {
             public void onAnimationEnd(Animation animation) {
                 switch (nivel){
                     case 1:
-                        NavHostFragment.findNavController(Areyouready.this)
-                                .navigate(R.id.action_areyouready_to_secondFragment);
+                        mp.stop();
+                        Bundle bundlefacil = new Bundle();
+                       String[] bolas = new String[2];
+                       bolas[0] = "2";
+                       bolas[1] = "2";
+                        bundlefacil.putStringArray("bolas",bolas);
+                        NavHostFragment.findNavController(Areyouready.this).navigate(R.id.action_areyouready_to_secondFragment,bundlefacil);
+
                         break;
                     case 2:
+                        mp.stop();
+                        Bundle bundlemedio = new Bundle();
+                        String[] bolasmedio = new String[2];
+                        bolasmedio[0] = "3";
+                        bolasmedio[1] = "4";
                         NavHostFragment.findNavController(Areyouready.this)
-                                .navigate(R.id.action_areyouready_to_medium_level_fragment);
+                                .navigate(R.id.action_areyouready_to_medium_level_fragment,bundlemedio);
+
                         break;
                     case 3 :
+                        mp.stop();
+                        Bundle bundledificil = new Bundle();
+                        String[] bundledificila = new String[2];
+                        bundledificila[0] = "2";
+                        bundledificila[1] = "3";
                         NavHostFragment.findNavController(Areyouready.this)
-                                .navigate(R.id.action_areyouready_to_hardLevel);
+                                .navigate(R.id.action_areyouready_to_hardLevel,bundledificil);
+
                         break;
 
                 }

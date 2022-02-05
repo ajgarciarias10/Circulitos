@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="es.tonicotitular.circulitos.FirstFragment"
+        android:name="es.tonicotitular.circulitos.UI.FirstFragment"
         android:label="Levels"
         tools:layout="@layout/fragment_first">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/areyouready"
-        android:name="es.tonicotitular.circulitos.Areyouready"
+        android:name="es.tonicotitular.circulitos.UI.Areyouready"
         android:label="fragment_areyouready"
         tools:layout="@layout/fragment_areyouready" >
         <action
@@ -31,17 +31,34 @@
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
-        android:name="es.tonicotitular.circulitos.SecondFragment"
+        android:name="es.tonicotitular.circulitos.UI.UICONBOLAS.SecondFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second" />
+        tools:layout="@layout/fragment_second" >
+        <action
+            android:id="@+id/action_secondFragment_to_cuantasBolasFragment"
+            app:destination="@id/cuantasBolasFragment" />
+    </fragment>
     <fragment
         android:id="@+id/hardLevel"
-        android:name="es.tonicotitular.circulitos.HardLevel"
+        android:name="es.tonicotitular.circulitos.UI.UICONBOLAS.HardLevel"
         android:label="fragment_hard_level"
-        tools:layout="@layout/fragment_hard_level" />
+        tools:layout="@layout/fragment_hard_level" >
+        <action
+            android:id="@+id/action_hardLevel_to_cuantasBolasFragment"
+            app:destination="@id/cuantasBolasFragment" />
+    </fragment>
     <fragment
         android:id="@+id/medium_level_fragment"
-        android:name="es.tonicotitular.circulitos.medium_level_fragment"
+        android:name="es.tonicotitular.circulitos.UI.UICONBOLAS.medium_level_fragment"
         android:label="fragment_medium_level_fragment"
-        tools:layout="@layout/fragment_medium_level_fragment" />
+        tools:layout="@layout/fragment_medium_level_fragment" >
+        <action
+            android:id="@+id/action_medium_level_fragment_to_cuantasBolasFragment"
+            app:destination="@id/cuantasBolasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cuantasBolasFragment"
+        android:name="es.tonicotitular.circulitos.UI.CuantasBolasFragment"
+        android:label="fragment_cuantas_bolas"
+        tools:layout="@layout/fragment_cuantas_bolas" />
 </navigation>

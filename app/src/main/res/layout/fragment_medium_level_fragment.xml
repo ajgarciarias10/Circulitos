@@ -5,9 +5,9 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".medium_level_fragment">
+    tools:context=".UI.UICONBOLAS.medium_level_fragment">
 
-    <es.tonicotitular.circulitos.GraphicViewMedium
+    <es.tonicotitular.circulitos.MovimientoBolas.GraphicViewMedium
         android:id="@+id/graphicViewMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
