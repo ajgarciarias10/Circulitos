@@ -1,14 +1,22 @@
 package es.tonicotitular.circulitos.UI.UICONBOLAS;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import es.tonicotitular.circulitos.R;
+import es.tonicotitular.circulitos.databinding.FragmentHardLevelBinding;
+import es.tonicotitular.circulitos.databinding.FragmentMediumLevelFragmentBinding;
+import es.tonicotitular.circulitos.databinding.FragmentSecondBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,10 +65,39 @@ public class HardLevel extends Fragment {
         }
     }
 
+    private FragmentHardLevelBinding binding;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hard_level, container, false);
+    public View onCreateView(
+            LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState
+    ) {
+
+        binding = FragmentHardLevelBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+
+
+
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        final MediaPlayer mp = MediaPlayer.create(getContext(), R.raw.elbhico);
+
+
+        CountDownTimer count = new CountDownTimer(5000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                binding.contador2.setText(String.valueOf(millisUntilFinished / 1000));
+                mp.start();
+            }
+
+            public void onFinish() {
+                int respuesta = 3;
+                Bundle bundle = new Bundle();
+                bundle.putInt("respuesta",respuesta);
+                NavHostFragment.findNavController(HardLevel.this).navigate(R.id.action_hardLevel_to_cuantasBolasFragment,bundle);
+                mp.stop();
+            }
+        }.start();
     }
 }

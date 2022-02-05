@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import es.tonicotitular.circulitos.MovimientoBolas.GraphicViewParteFacil;
 import es.tonicotitular.circulitos.R;
 import es.tonicotitular.circulitos.databinding.FragmentSecondBinding;
 
@@ -35,14 +36,17 @@ public class SecondFragment extends Fragment {
             final MediaPlayer mp = MediaPlayer.create(getContext(), R.raw.elbhico);
 
 
-            CountDownTimer count = new CountDownTimer(13000, 1000) {
+            CountDownTimer count = new CountDownTimer(5000, 1000) {
                 public void onTick(long millisUntilFinished) {
                     binding.Contador.setText(String.valueOf(millisUntilFinished / 1000));
                     mp.start();
                 }
 
                 public void onFinish() {
-                    NavHostFragment.findNavController(SecondFragment.this).navigate(R.id.action_secondFragment_to_cuantasBolasFragment);
+                    int respuesta = 1;
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("respuesta",respuesta);
+                    NavHostFragment.findNavController(SecondFragment.this).navigate(R.id.action_secondFragment_to_cuantasBolasFragment,bundle);
                     mp.stop();
                 }
             }.start();

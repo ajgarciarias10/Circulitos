@@ -5,6 +5,9 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 
+/**
+ * Clase Bolas
+ */
 public class Ball{
     public int[] direction = new int[]{1,1}; //direction modifier (-1,1)
     public int x,y,size;

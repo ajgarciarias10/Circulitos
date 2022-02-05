@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_areyouready"
             app:destination="@id/areyouready" />
+        <action
+            android:id="@+id/action_FirstFragment_self"
+            app:destination="@id/FirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/areyouready"
@@ -60,5 +63,9 @@
         android:id="@+id/cuantasBolasFragment"
         android:name="es.tonicotitular.circulitos.UI.CuantasBolasFragment"
         android:label="fragment_cuantas_bolas"
-        tools:layout="@layout/fragment_cuantas_bolas" />
+        tools:layout="@layout/fragment_cuantas_bolas" >
+        <action
+            android:id="@+id/action_cuantasBolasFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
 </navigation>

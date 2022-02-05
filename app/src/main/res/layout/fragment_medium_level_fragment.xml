@@ -7,6 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".UI.UICONBOLAS.medium_level_fragment">
 
+    <TextView
+        android:id="@+id/contador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="221dp"
+        android:layout_marginBottom="363dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <es.tonicotitular.circulitos.MovimientoBolas.GraphicViewMedium
         android:id="@+id/graphicViewMedium"
         android:layout_width="wrap_content"
