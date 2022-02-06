@@ -12,7 +12,7 @@ import java.util.List;
 import es.tonicotitular.circulitos.MovimientoBolas.Ball;
 
 public class GraphicViewParteDificil  extends View {
-    private static List<Ball> ballsdificil = new ArrayList<>();
+    public static List<Ball> ballsdificil = new ArrayList<>();
     public GraphicViewParteDificil(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();

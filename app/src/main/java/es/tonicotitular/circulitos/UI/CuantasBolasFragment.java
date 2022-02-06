@@ -1,5 +1,7 @@
 package es.tonicotitular.circulitos.UI;
 
+import static es.tonicotitular.circulitos.MovimientoBolas.GraphicViewParteDificil.ballsdificil;
+
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -14,6 +16,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import es.tonicotitular.circulitos.MovimientoBolas.GraphicViewMedium;
+import es.tonicotitular.circulitos.MovimientoBolas.GraphicViewParteDificil;
+import es.tonicotitular.circulitos.MovimientoBolas.GraphicViewParteFacil;
 import es.tonicotitular.circulitos.R;
 import es.tonicotitular.circulitos.UI.UICONBOLAS.SecondFragment;
 import es.tonicotitular.circulitos.databinding.FragmentCuantasBolasBinding;
@@ -59,6 +64,11 @@ public class CuantasBolasFragment extends Fragment {
 
                              @Override
                              public void onFinish() {
+
+
+                                     GraphicViewParteFacil.ballsfacil.clear();
+
+
                                  mp.stop();
                                  NavHostFragment.findNavController(CuantasBolasFragment.this).navigate(R.id.action_cuantasBolasFragment_to_FirstFragment);
 
@@ -78,6 +88,10 @@ public class CuantasBolasFragment extends Fragment {
 
                              @Override
                              public void onFinish() {
+
+
+                                     GraphicViewParteFacil.ballsfacil.clear();
+
                                  mp.stop();
                                  NavHostFragment.findNavController(CuantasBolasFragment.this).navigate(R.id.action_cuantasBolasFragment_to_FirstFragment);
                              }
@@ -103,6 +117,9 @@ public class CuantasBolasFragment extends Fragment {
 
                                 @Override
                                 public void onFinish() {
+
+                                    GraphicViewMedium.ballsMedium.clear();
+
                                     mp.stop();
                                     NavHostFragment.findNavController(CuantasBolasFragment.this).navigate(R.id.action_cuantasBolasFragment_to_FirstFragment);
 
@@ -116,12 +133,14 @@ public class CuantasBolasFragment extends Fragment {
                                 final MediaPlayer mp = MediaPlayer.create(getContext(), R.raw.correcta);
                                 @Override
                                 public void onTick(long millisUntilFinished) {
+
                                     mp.start();
                                     binding.frameLayout4.setBackgroundColor(Color.GREEN);
                                 }
 
                                 @Override
                                 public void onFinish() {
+                                    GraphicViewMedium.ballsMedium.clear();
                                     mp.stop();
                                     NavHostFragment.findNavController(CuantasBolasFragment.this).navigate(R.id.action_cuantasBolasFragment_to_FirstFragment);
                                 }
@@ -136,8 +155,10 @@ public class CuantasBolasFragment extends Fragment {
                         if (numerodeBolasRojas != numerodeBolasRojasDificil || numerodeBolasAmarillas!= numerodeBolasAmarillasDificil) {
                             final MediaPlayer mp = MediaPlayer.create(getContext(), R.raw.incorrecta);
                             CountDownTimer count = new CountDownTimer(3000, 1000) {
+
                                 @Override
                                 public void onTick(long millisUntilFinished) {
+
 
                                     mp.start();
                                     binding.frameLayout4.setBackgroundColor(Color.RED);
@@ -146,6 +167,7 @@ public class CuantasBolasFragment extends Fragment {
 
                                 @Override
                                 public void onFinish() {
+                                    ballsdificil.clear();
                                     mp.stop();
                                     NavHostFragment.findNavController(CuantasBolasFragment.this).navigate(R.id.action_cuantasBolasFragment_to_FirstFragment);
 
@@ -159,12 +181,14 @@ public class CuantasBolasFragment extends Fragment {
                                 final MediaPlayer mp = MediaPlayer.create(getContext(), R.raw.correcta);
                                 @Override
                                 public void onTick(long millisUntilFinished) {
+
                                     mp.start();
                                     binding.frameLayout4.setBackgroundColor(Color.GREEN);
                                 }
 
                                 @Override
                                 public void onFinish() {
+                                    ballsdificil.clear();
                                     mp.stop();
                                     NavHostFragment.findNavController(CuantasBolasFragment.this).navigate(R.id.action_cuantasBolasFragment_to_FirstFragment);
                                 }

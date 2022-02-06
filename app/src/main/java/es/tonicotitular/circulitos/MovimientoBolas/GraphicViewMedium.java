@@ -12,7 +12,7 @@ import java.util.List;
 import es.tonicotitular.circulitos.MovimientoBolas.Ball;
 
 public class GraphicViewMedium  extends View {
-    private  static List<Ball> ballsMedium = new ArrayList<>();
+    public  static List<Ball> ballsMedium = new ArrayList<>();
     public GraphicViewMedium(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
