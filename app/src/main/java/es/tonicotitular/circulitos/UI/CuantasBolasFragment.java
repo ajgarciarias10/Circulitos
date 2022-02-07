@@ -151,7 +151,7 @@ public class CuantasBolasFragment extends Fragment {
                         }
                         break;
                     case 3 :
-                        int numerodeBolasRojasDificil= 3 , numerodeBolasAmarillasDificil= 2;
+                        int numerodeBolasRojasDificil= 3 , numerodeBolasAmarillasDificil= 4;
                         if (numerodeBolasRojas != numerodeBolasRojasDificil || numerodeBolasAmarillas!= numerodeBolasAmarillasDificil) {
                             final MediaPlayer mp = MediaPlayer.create(getContext(), R.raw.incorrecta);
                             CountDownTimer count = new CountDownTimer(3000, 1000) {

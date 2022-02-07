@@ -16,9 +16,7 @@ public class Areyouready extends Fragment {
     //Utilizamos el binding para llamar a cada objeto que utilizamos en la interfaz
     private FragmentAreyoureadyBinding binding;
 
-
     TranslateAnimation an ;
-
 
     @Override
     public View onCreateView(
@@ -32,11 +30,11 @@ public class Areyouready extends Fragment {
     }
 
 
-
-
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         int nivel;
+
         Bundle bundle = new Bundle();
         bundle = getArguments();
         nivel = bundle.getInt("nivel");
