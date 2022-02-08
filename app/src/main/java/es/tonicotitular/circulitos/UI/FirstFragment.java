@@ -35,19 +35,23 @@ import es.tonicotitular.circulitos.R;
 import es.tonicotitular.circulitos.databinding.FragmentFirstBinding;
 
 public class FirstFragment extends Fragment {
-    private static final int ACTION_TAKE_PHOTO_B = 1;
+    //ACCION EN EL CASO DE QUE LA FOTO SEA PEQUEÑA
     private static final int ACTION_TAKE_PHOTO_S = 2;
+    //Ruta actual de la foto
     private String mCurrentPhotoPath;
+    //Bits de imagenes para setearlo
     private Bitmap mImageBitmap;
+    //Lo utilizamos para meternos en el album de fotos del telefono
     private AlbumStorageDirFactory mAlbumStorageDirFactory = null;
-    private static final String JPEG_FILE_PREFIX = "IMG_";
-    private static final String JPEG_FILE_SUFFIX = ".jpg";
-    private static final String TAG = "HOLALALA";
+    //region Tipo de prefijo de fotos
+        private static final String JPEG_FILE_PREFIX = "IMG_";
+        private static final String JPEG_FILE_SUFFIX = ".jpg";
+    //endregion
+
     //Declaracion del fragmento
     private FragmentFirstBinding binding;
     //Creacion dato tipo entero que va a simular el nivel
     private int nivel = 0;
-
     //region  OnCreateView
     @Override
     public View onCreateView(
@@ -73,21 +77,25 @@ public class FirstFragment extends Fragment {
         //En cada nivel
         switch (nivel) {
             case 0://Facil
+                //DEPENDIENDO del nivel seteamos el nivel
                 binding.btEasyLevel.setEnabled(true);
                 binding.btMediumLevel.setEnabled(false);
                 binding.btHardlevel.setEnabled(false);
                 break;
             case 1://Medio
+                //DEPENDIENDO del nivel seteamos el nivel
                 binding.btEasyLevel.setEnabled(false);
                 binding.btMediumLevel.setEnabled(true);
                 binding.btHardlevel.setEnabled(false);
                 break;
             case 2://Dificil
+                //DEPENDIENDO del nivel seteamos el nivel
                 binding.btEasyLevel.setEnabled(false);
                 binding.btMediumLevel.setEnabled(false);
                 binding.btHardlevel.setEnabled(true);
                 break;
             case 3://Te pasaste el nivel
+                //DEPENDIENDO del nivel seteamos el nivel
                 binding.btEasyLevel.setVisibility(View.GONE);
                 binding.btMediumLevel.setVisibility(View.GONE);
                 binding.btHardlevel.setVisibility(View.GONE);
@@ -96,10 +104,12 @@ public class FirstFragment extends Fragment {
                 binding.imageView.setVisibility(View.VISIBLE);
                 //Comenzamos el hilo del sonido
                 mp.start();
-                binding.imageView4.setVisibility(View.VISIBLE);
-                binding.imageView4.setOnClickListener(new View.OnClickListener() {
+                //Iniciamos la camara si le da al icono de la foto
+                binding.displayCamera.setVisibility(View.VISIBLE);
+                binding.displayCamera.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        //Funcion para iniciar la cámara
                     dispatchTakePictureIntent(ACTION_TAKE_PHOTO_S);
                     }
                 });
@@ -108,7 +118,6 @@ public class FirstFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         //Cerramos el hilo
-
                         mp.stop();
                         //Se sale de la app
                         System.exit(0);
@@ -158,32 +167,33 @@ public class FirstFragment extends Fragment {
         binding = null;
 
     }
+    //region evento que se mete en la camara
+        private void dispatchTakePictureIntent(int actionCode) {
 
-    private void dispatchTakePictureIntent(int actionCode) {
+            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);//la accion para sacar la imagen
+            switch (actionCode) {
+                //En el caso de que la imagen sea pequeña
+                case ACTION_TAKE_PHOTO_S:
+                    File f = null;
 
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    try {
+                        f = setUpPhotoFile();
+                        mCurrentPhotoPath = f.getAbsolutePath();
+                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        f = null;
+                        mCurrentPhotoPath = null;
+                    }
+                    break;
 
-        switch (actionCode) {
-            case ACTION_TAKE_PHOTO_B:
-                File f = null;
+                default:
+                    break;
+            } // switch
 
-                try {
-                    f = setUpPhotoFile();
-                    mCurrentPhotoPath = f.getAbsolutePath();
-                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    f = null;
-                    mCurrentPhotoPath = null;
-                }
-                break;
-
-            default:
-                break;
-        } // switch
-
-        startActivityForResult(takePictureIntent, actionCode);
-    }
+            startActivityForResult(takePictureIntent, actionCode);
+        }
+    //endregion
 
     private File setUpPhotoFile() throws IOException {
 
@@ -246,8 +256,8 @@ public class FirstFragment extends Fragment {
     private void handleSmallCameraPhoto(Intent intent) {
         Bundle extras = intent.getExtras();
         mImageBitmap = (Bitmap) extras.get("data");
-        binding.imageView2.setImageBitmap(mImageBitmap);
-        binding.imageView2.setVisibility(View.VISIBLE);
+        binding.displayImage.setImageBitmap(mImageBitmap);
+        binding.displayImage.setVisibility(View.VISIBLE);
 
     }
 }
