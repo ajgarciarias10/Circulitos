@@ -23,13 +23,13 @@ public class GraphicViewParteDificil  extends View {
     }
     private void init(){
         //Add a new ball to the view
-        ballsdificil.add(new Ball(250,30,100, Color.RED,70));
+        ballsdificil.add(new Ball(250,30,100, Color.RED,74));
         ballsdificil.add(new Ball(350,50,100,Color.RED,60));
-        ballsdificil.add(new Ball(520,110,100,Color.RED,60));
-        ballsdificil.add(new Ball(10,20,100,Color.YELLOW,70));
-        ballsdificil.add(new Ball(170,00,100,Color.YELLOW,70));
-        ballsdificil.add(new Ball(102,210,100,Color.YELLOW,70));
-        ballsdificil.add(new Ball(130,100,100,Color.YELLOW,70));
+        ballsdificil.add(new Ball(520,110,100,Color.RED,62));
+        ballsdificil.add(new Ball(10,20,100,Color.YELLOW,71));
+        ballsdificil.add(new Ball(170,00,100,Color.YELLOW,40));
+        ballsdificil.add(new Ball(102,210,100,Color.YELLOW,90));
+        ballsdificil.add(new Ball(130,100,100,Color.YELLOW,30));
     }
     @Override
     protected void onDraw(Canvas canvas) {
