@@ -36,6 +36,7 @@ import es.tonicotitular.circulitos.databinding.FragmentFirstBinding;
 
 public class FirstFragment extends Fragment {
     //ACCION EN EL CASO DE QUE LA FOTO SEA PEQUEÑA
+    private static final int ACTION_TAKE_PHOTO_B = 1;
     private static final int ACTION_TAKE_PHOTO_S = 2;
     //Ruta actual de la foto
     private String mCurrentPhotoPath;
@@ -173,7 +174,7 @@ public class FirstFragment extends Fragment {
             Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);//la accion para sacar la imagen
             switch (actionCode) {
                 //En el caso de que la imagen sea pequeña
-                case ACTION_TAKE_PHOTO_S:
+                case ACTION_TAKE_PHOTO_B:
                     File f = null;
 
                     try {
@@ -260,4 +261,5 @@ public class FirstFragment extends Fragment {
         binding.displayImage.setVisibility(View.VISIBLE);
 
     }
+
 }
