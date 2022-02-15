@@ -23,13 +23,13 @@ public class GraphicViewMedium  extends View {
     }
     private void init(){
         //Add a new ball to the view
-        ballsMedium.add(new Ball(20,130,100, Color.RED,40));
-        ballsMedium.add(new Ball(550,50,100,Color.RED,40));
-        ballsMedium.add(new Ball(120,210,100,Color.RED,40));
-        ballsMedium.add(new Ball(170,200,100,Color.YELLOW,40));
+        ballsMedium.add(new Ball(20,130,100, Color.RED,50));
+        ballsMedium.add(new Ball(250,50,100,Color.RED,-40));
+        ballsMedium.add(new Ball(120,210,100,Color.RED,60));
+        ballsMedium.add(new Ball(170,200,100,Color.YELLOW,10));
         ballsMedium.add(new Ball(310,320,100,Color.YELLOW,40));
-        ballsMedium.add(new Ball(70,100,100,Color.YELLOW,40));
-        ballsMedium.add(new Ball(40,300,100,Color.YELLOW,40));
+        ballsMedium.add(new Ball(70,100,100,Color.YELLOW,-80));
+        ballsMedium.add(new Ball(40,300,100,Color.YELLOW,120));
     }
     @Override
     protected void onDraw(Canvas canvas) {
