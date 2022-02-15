@@ -28,7 +28,7 @@ public class GraphicViewMedium  extends View {
         ballsMedium.add(new Ball(120,210,100,Color.RED,60));
         ballsMedium.add(new Ball(170,200,100,Color.YELLOW,10));
         ballsMedium.add(new Ball(310,320,100,Color.YELLOW,40));
-        ballsMedium.add(new Ball(70,100,100,Color.YELLOW,-80));
+        ballsMedium.add(new Ball(70,100,100,Color.YELLOW,-20));
         ballsMedium.add(new Ball(40,300,100,Color.YELLOW,120));
     }
     @Override
